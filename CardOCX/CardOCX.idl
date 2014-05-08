@@ -26,6 +26,7 @@ interface ICardObject : IDispatch{
 	[id(16)] HRESULT OCX_GetPrinters([out,retval] VARIANT* printers);
 	[id(17)] HRESULT OCX_PrintAll([in] BSTR* expiredDate,[in] BSTR* parValue,[in] BSTR* password,[in] LONG permission, [out,retval] LONG* retValue);
 	[id(18)] HRESULT OCX_IC_ReadCardNoAndTrack([out,retval] VARIANT* fieldValues);
+	[id(19)] HRESULT OCX_IC_ReadCardNo([out,retval] VARIANT* fieldValues);
 };
 [
 	uuid(E6078CCC-6FAA-4670-AABB-3CB3D918E3B7),

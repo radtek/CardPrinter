@@ -4,7 +4,7 @@
 
 
  /* File created by MIDL compiler version 7.00.0555 */
-/* at Wed Dec 18 18:30:11 2013
+/* at Thu May 08 22:38:18 2014
  */
 /* Compiler settings for CardOCX.idl:
     Oicf, W1, Zp8, env=Win32 (32b run), target_arch=X86 7.00.0555 
@@ -132,6 +132,12 @@ EXTERN_C const IID IID_ICardObject;
             /* [in] */ LONG permission,
             /* [retval][out] */ LONG *retValue) = 0;
         
+        virtual /* [id] */ HRESULT STDMETHODCALLTYPE OCX_IC_ReadCardNoAndTrack( 
+            /* [retval][out] */ VARIANT *fieldValues) = 0;
+        
+        virtual /* [id] */ HRESULT STDMETHODCALLTYPE OCX_IC_ReadCardNo( 
+            /* [retval][out] */ VARIANT *fieldValues) = 0;
+        
     };
     
 #else 	/* C style interface */
@@ -230,6 +236,14 @@ EXTERN_C const IID IID_ICardObject;
             /* [in] */ LONG permission,
             /* [retval][out] */ LONG *retValue);
         
+        /* [id] */ HRESULT ( STDMETHODCALLTYPE *OCX_IC_ReadCardNoAndTrack )( 
+            ICardObject * This,
+            /* [retval][out] */ VARIANT *fieldValues);
+        
+        /* [id] */ HRESULT ( STDMETHODCALLTYPE *OCX_IC_ReadCardNo )( 
+            ICardObject * This,
+            /* [retval][out] */ VARIANT *fieldValues);
+        
         END_INTERFACE
     } ICardObjectVtbl;
 
@@ -295,6 +309,12 @@ EXTERN_C const IID IID_ICardObject;
 
 #define ICardObject_OCX_PrintAll(This,expiredDate,parValue,password,permission,retValue)	\
     ( (This)->lpVtbl -> OCX_PrintAll(This,expiredDate,parValue,password,permission,retValue) ) 
+
+#define ICardObject_OCX_IC_ReadCardNoAndTrack(This,fieldValues)	\
+    ( (This)->lpVtbl -> OCX_IC_ReadCardNoAndTrack(This,fieldValues) ) 
+
+#define ICardObject_OCX_IC_ReadCardNo(This,fieldValues)	\
+    ( (This)->lpVtbl -> OCX_IC_ReadCardNo(This,fieldValues) ) 
 
 #endif /* COBJMACROS */
 

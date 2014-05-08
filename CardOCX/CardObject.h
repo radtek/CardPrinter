@@ -75,6 +75,7 @@ public:
 	STDMETHOD(OCX_GetPrinters)(VARIANT* printers);
 	STDMETHOD(OCX_PrintAll)(BSTR* expiredDate,BSTR* parValue,BSTR* password,LONG permission, LONG* retValue);
 	STDMETHOD(OCX_IC_ReadCardNoAndTrack)(VARIANT* fieldValues);
+	STDMETHOD(OCX_IC_ReadCardNo)(VARIANT* fieldValues);
 };
 
 OBJECT_ENTRY_AUTO(__uuidof(CardObject), CCardObject)

@@ -197,3 +197,49 @@ STDMETHODIMP CCardObject::OCX_IC_ReadCardNoAndTrack(VARIANT* fieldValue)
 
 	return S_OK;
 }
+
+
+STDMETHODIMP CCardObject::OCX_IC_ReadCardNo(VARIANT* fieldValue)
+{
+	char cardNo[150];
+	memset(cardNo,0x00,sizeof(cardNo));
+	char phyid[17];
+	int cardType = 0;
+	int ret = ENG_RequestCard(phyid,cardType);
+	if(ret)
+	{
+		ENG_BeepError();
+		return ret;
+	}
+
+	char** list = new char*[1];
+	list[0] = cardNo;
+	ret = ENG_ReadCardNo(cardNo);
+	if(ret==0)
+		ENG_Beep();
+	else 
+		ENG_BeepError();
+
+	SAFEARRAYBOUND saBound;
+	SAFEARRAY* pSA;
+		
+	saBound.cElements = 1;
+	saBound.lLbound = 0;
+
+	pSA = SafeArrayCreate( VT_VARIANT, 1, &saBound );
+
+	VARIANT row;
+	row.vt = VT_BSTR;
+	for (long i = 0; i < 1; ++i)
+    {
+		row.bstrVal = _com_util::ConvertStringToBSTR(cardNo);
+        SafeArrayPutElement( pSA, &i, &row);
+		//delete[] list[i];
+	}
+
+	VariantInit( fieldValue );
+	fieldValue->vt = VT_ARRAY | VT_VARIANT;
+	fieldValue->parray = pSA;
+
+	return S_OK;
+}

@@ -4,7 +4,7 @@
 
 
  /* File created by MIDL compiler version 7.00.0555 */
-/* at Wed Dec 18 18:30:11 2013
+/* at Thu May 08 22:38:18 2014
  */
 /* Compiler settings for CardOCX.idl:
     Oicf, W1, Zp8, env=Win32 (32b run), target_arch=X86 7.00.0555 
@@ -50,7 +50,7 @@
 #include "CardOCX_i.h"
 
 #define TYPE_FORMAT_STRING_SIZE   1075                              
-#define PROC_FORMAT_STRING_SIZE   415                               
+#define PROC_FORMAT_STRING_SIZE   487                               
 #define EXPR_FORMAT_STRING_SIZE   1                                 
 #define TRANSMIT_AS_TABLE_SIZE    0            
 #define WIRE_MARSHAL_TABLE_SIZE   2            
@@ -470,6 +470,66 @@ static const CardOCX_MIDL_PROC_FORMAT_STRING CardOCX__MIDL_ProcFormatString =
 /* 408 */	NdrFcShort( 0x70 ),	/* Flags:  out, return, base type, */
 /* 410 */	NdrFcShort( 0x18 ),	/* x86 Stack size/offset = 24 */
 /* 412 */	0x8,		/* FC_LONG */
+			0x0,		/* 0 */
+
+	/* Procedure OCX_IC_ReadCardNoAndTrack */
+
+/* 414 */	0x33,		/* FC_AUTO_HANDLE */
+			0x6c,		/* Old Flags:  object, Oi2 */
+/* 416 */	NdrFcLong( 0x0 ),	/* 0 */
+/* 420 */	NdrFcShort( 0x11 ),	/* 17 */
+/* 422 */	NdrFcShort( 0xc ),	/* x86 Stack size/offset = 12 */
+/* 424 */	NdrFcShort( 0x0 ),	/* 0 */
+/* 426 */	NdrFcShort( 0x8 ),	/* 8 */
+/* 428 */	0x45,		/* Oi2 Flags:  srv must size, has return, has ext, */
+			0x2,		/* 2 */
+/* 430 */	0x8,		/* 8 */
+			0x3,		/* Ext Flags:  new corr desc, clt corr check, */
+/* 432 */	NdrFcShort( 0x1 ),	/* 1 */
+/* 434 */	NdrFcShort( 0x0 ),	/* 0 */
+/* 436 */	NdrFcShort( 0x0 ),	/* 0 */
+
+	/* Parameter fieldValues */
+
+/* 438 */	NdrFcShort( 0x4113 ),	/* Flags:  must size, must free, out, simple ref, srv alloc size=16 */
+/* 440 */	NdrFcShort( 0x4 ),	/* x86 Stack size/offset = 4 */
+/* 442 */	NdrFcShort( 0x428 ),	/* Type Offset=1064 */
+
+	/* Return value */
+
+/* 444 */	NdrFcShort( 0x70 ),	/* Flags:  out, return, base type, */
+/* 446 */	NdrFcShort( 0x8 ),	/* x86 Stack size/offset = 8 */
+/* 448 */	0x8,		/* FC_LONG */
+			0x0,		/* 0 */
+
+	/* Procedure OCX_IC_ReadCardNo */
+
+/* 450 */	0x33,		/* FC_AUTO_HANDLE */
+			0x6c,		/* Old Flags:  object, Oi2 */
+/* 452 */	NdrFcLong( 0x0 ),	/* 0 */
+/* 456 */	NdrFcShort( 0x12 ),	/* 18 */
+/* 458 */	NdrFcShort( 0xc ),	/* x86 Stack size/offset = 12 */
+/* 460 */	NdrFcShort( 0x0 ),	/* 0 */
+/* 462 */	NdrFcShort( 0x8 ),	/* 8 */
+/* 464 */	0x45,		/* Oi2 Flags:  srv must size, has return, has ext, */
+			0x2,		/* 2 */
+/* 466 */	0x8,		/* 8 */
+			0x3,		/* Ext Flags:  new corr desc, clt corr check, */
+/* 468 */	NdrFcShort( 0x1 ),	/* 1 */
+/* 470 */	NdrFcShort( 0x0 ),	/* 0 */
+/* 472 */	NdrFcShort( 0x0 ),	/* 0 */
+
+	/* Parameter fieldValues */
+
+/* 474 */	NdrFcShort( 0x4113 ),	/* Flags:  must size, must free, out, simple ref, srv alloc size=16 */
+/* 476 */	NdrFcShort( 0x4 ),	/* x86 Stack size/offset = 4 */
+/* 478 */	NdrFcShort( 0x428 ),	/* Type Offset=1064 */
+
+	/* Return value */
+
+/* 480 */	NdrFcShort( 0x70 ),	/* Flags:  out, return, base type, */
+/* 482 */	NdrFcShort( 0x8 ),	/* x86 Stack size/offset = 8 */
+/* 484 */	0x8,		/* FC_LONG */
 			0x0,		/* 0 */
 
 			0x0
@@ -1257,7 +1317,9 @@ static const unsigned short ICardObject_FormatStringOffsetTable[] =
     234,
     276,
     318,
-    354
+    354,
+    414,
+    450
     };
 
 static const MIDL_STUBLESS_PROXY_INFO ICardObject_ProxyInfo =
@@ -1281,7 +1343,7 @@ static const MIDL_SERVER_INFO ICardObject_ServerInfo =
     0,
     0,
     0};
-CINTERFACE_PROXY_VTABLE(17) _ICardObjectProxyVtbl = 
+CINTERFACE_PROXY_VTABLE(19) _ICardObjectProxyVtbl = 
 {
     &ICardObject_ProxyInfo,
     &IID_ICardObject,
@@ -1301,7 +1363,9 @@ CINTERFACE_PROXY_VTABLE(17) _ICardObjectProxyVtbl =
     (void *) (INT_PTR) -1 /* ICardObject::OCX_PrintPassword */ ,
     (void *) (INT_PTR) -1 /* ICardObject::OCX_SetPrinter */ ,
     (void *) (INT_PTR) -1 /* ICardObject::OCX_GetPrinters */ ,
-    (void *) (INT_PTR) -1 /* ICardObject::OCX_PrintAll */
+    (void *) (INT_PTR) -1 /* ICardObject::OCX_PrintAll */ ,
+    (void *) (INT_PTR) -1 /* ICardObject::OCX_IC_ReadCardNoAndTrack */ ,
+    (void *) (INT_PTR) -1 /* ICardObject::OCX_IC_ReadCardNo */
 };
 
 
@@ -1320,6 +1384,8 @@ static const PRPC_STUB_FUNCTION ICardObject_table[] =
     NdrStubCall2,
     NdrStubCall2,
     NdrStubCall2,
+    NdrStubCall2,
+    NdrStubCall2,
     NdrStubCall2
 };
 
@@ -1327,7 +1393,7 @@ CInterfaceStubVtbl _ICardObjectStubVtbl =
 {
     &IID_ICardObject,
     &ICardObject_ServerInfo,
-    17,
+    19,
     &ICardObject_table[-3],
     CStdStubBuffer_DELEGATING_METHODS
 };
